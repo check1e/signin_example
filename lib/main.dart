@@ -47,6 +47,25 @@ class _SignUpFormState extends State<SignUpForm> {
     Navigator.of(context).pushNamed('/welcome');
   }
 
+  void _updateFormProgress() {
+    var progress = 0.0;
+    var controllers = [
+      _firstNameTextController,
+      _lastNameTextController,
+      _usernameTextController
+    ];
+
+    for (var controller in controllers) {
+      if (controller.value.text.isNotEmpty) {
+        progress += 1 / controllers.length;
+      }
+    }
+
+    setState(() {
+      _formProgress = progress;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
