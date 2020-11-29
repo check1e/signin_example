@@ -56,9 +56,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 // Fill progress when any text is entered.
                 // Should add a check for validity.
                 // Or use some forms framework that handles more of this.
-                ? (1 / controllers.length)
-                : 0);
-
+                ? previousValue + (1 / controllers.length)
+                : previousValue);
     return progress;
   }
 
